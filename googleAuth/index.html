@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+ <html class="no-js"> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <button onclick="googleSignIn()" id="google-sign-in">Google login</button>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        
+        <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+       <!-- CDNs added for database and Authentication -->
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-database.js"></script>
+<!-- <script src="auth.js"></script> -->
+
+<script>
+const config = {
+    apiKey: "AIzaSyCX1sgdAQ0Xit_0Bc0toqTQh9Rz2SCBayc",
+    authDomain: "test-9bb2d.firebaseapp.com",
+    databaseURL: "https://test-9bb2d.firebaseio.com",
+    projectId: "test-9bb2d",
+    storageBucket: "test-9bb2d.appspot.com",
+    messagingSenderId: "418448696670",
+    appId: "1:418448696670:web:10324fac74772b63aa5bcf"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(config);
+
+
+
+  const auth = firebase.auth();
+
+
+  googleSignIn = () => {
+      base_provider = new firebase.auth.GoogleAuthProvider()
+      auth.signInWithPopup(base_provider).then(function (result) {
+          console.log(result)
+          console.log("We made it happen")
+      }).catch(function(err){
+          console.log(err)
+          console.log("sorry try again")
+      })
+  }</script>
+        
+    </body>
+</html>
